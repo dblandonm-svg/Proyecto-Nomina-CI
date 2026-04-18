@@ -1,0 +1,24 @@
+name: Integracion Continua - Demo
+
+on:
+  pull_request:
+    branches: [ "develop" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Copiar codigo del repo
+      uses: actions/checkout@v4
+
+    - name: Configurar Entorno
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Ejecutar Build
+      run: echo "Ejecutando el Build del sistema de nomina..."
+
+    - name: Ejecutar Tests
+      run: echo "Ejecutando pruebas unitarias de prestaciones (IGSS, IRTRA)..."
